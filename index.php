@@ -1,10 +1,3 @@
-<?
-	if(strpos("localhost", $_SERVER['HTTP_HOST']) > -1)
-		define("SITE_ROOT", "/media/css3memory/");
-	else 
-		define("SITE_ROOT", "/css3memory/");
-	
-?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-us">
 
@@ -15,10 +8,10 @@
 	
 	<title>CSS3 Memory</title>
 	
-	<link rel="stylesheet" href="<?=SITE_ROOT; ?>css/layout.css" media="screen" />
+	<link rel="stylesheet" href="css/layout.css" media="screen" />
  
  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
- 	<script type="text/javascript" src="<?=SITE_ROOT; ?>js/gamelogic-1.0.js"></script>
+ 	<script type="text/javascript" src="js/gamelogic-1.0.js"></script>
 </head>
 <body>
 
@@ -39,7 +32,7 @@
 	
 	<section class="gameboard">
 		<ul>
-		<?
+		<?php
 			// 12 card types
 				
 			$cardtype_count = array(0,0,0,0,0,0,0,0,0,0,0,0,0);
@@ -65,17 +58,17 @@
 					
 					<!-- RETRY! -->
 					
-					<?
+					<?php
 					}
 				}
 				
 				?>
-				<li id="card-<?=$i; ?>" class="card card-<?=$c; ?><?=(($rand = rand(1,99))>50) ? " card-alt" : ""; ?>">
-					<? // (($rand = rand(1,99))>33) ? (($rand>66) ? " card-alt" : " card-alt2") : ""; ?>
+				<li id="card-<?php echo $i; ?>" class="card card-<?php echo $c; $rand = rand(1,99); if ($rand>50) {echo " card-alt";} else  {echo "";} ?>">
+					<?php // (($rand = rand(1,99))>33) ? (($rand>66) ? " card-alt" : " card-alt2") : ""; ?>
 					<span></span>
 					<span class="back"></span>
 				</li>
-				<?
+				<?php
 			}
 		?>
 		</ul>
